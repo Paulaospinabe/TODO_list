@@ -18,32 +18,58 @@ const Home = () => {
 	}
 
 	return (
-		<div className="container mt-5">
-			<input
-				type="text"
-				placeholder="
-			Ingrese Nota"
-				onChange={(e) => setNota(e.target.value)}></input>
-			<ul>
-				{lista.map((notas, i) => {
-					return (
-						<div key={i}>
-							<li className="list-group-item ">{notas}</li>
-							<button
-								className="btn btn-warning"
-								onClick={() => eliminartarea(i)}>
-								X
-							</button>
-						</div>
-					);
-				})}
-			</ul>
+		<div style={{ background: "black" }}>
+			<div
+				className="container mt-5"
+				style={{
+					width: "40rem",
+					height: "35rem",
+					background: "white",
+				}}>
+				<div
+					className="container mt-5, text-muted"
+					style={{ textAlign: "center" }}>
+					<h1>
+						<p style={{ color: "pink" }}>TODOS</p>
+					</h1>
+				</div>
+				<div
+					className="container mt-4"
+					style={{
+						background: "white",
+						width: "30rem",
+					}}>
+					<input
+						style={{ textAlign: "center" }}
+						type="text"
+						placeholder="
+			What needs to be done?"
+						onChange={(e) => setNota(e.target.value)}></input>
 
-			<button
-				className="btn btn-success"
-				onClick={() => setLista([...lista, nota])}>
-				Añadir
-			</button>
+					<ul className="list-group">
+						{lista.map((notas, i) => {
+							return (
+								<div key={i}>
+									<li className="list-group-item ">
+										{notas}
+										<button
+											className="btn btn-light, list-group-item "
+											onClick={() => eliminartarea(i)}>
+											X
+										</button>
+									</li>
+								</div>
+							);
+						})}
+					</ul>
+				</div>
+				<br></br>
+				<button
+					className="btn btn-light"
+					onClick={() => setLista([...lista, nota])}>
+					Añadir
+				</button>
+			</div>
 		</div>
 	);
 };
